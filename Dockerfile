@@ -27,6 +27,9 @@ RUN Rscript -e "devtools::install_github('rstudio/rticles')"
 RUN Rscript -e "devtools::install_github('benmarwick/wordcountaddin', type = 'source', dependencies = TRUE)"
 RUN Rscript -e "devtools::install_github('ropenscilabs/gramr')"
 
+# install ipaex font
+RUN Rscript -e "tinytex::tlmgr_install('ipaex')"
+
 # install other R packages
 RUN install2.r -s --error \
 bayesplot \
