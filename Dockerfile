@@ -1,6 +1,5 @@
 FROM rocker/verse
 MAINTAINER "Yoshihiko Kunisato" ykunisato@psy.senshu-u.ac.jp
-# Installing "rstan" was based on the antoine-sachet/rocker-ML
 
 # Using clang as compiler for stan
 RUN apt-get update \
