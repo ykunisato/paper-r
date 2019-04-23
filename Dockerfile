@@ -8,7 +8,7 @@ RUN apt-get update \
 clang
 
 # Install ipaexfont
-RUN apt-get update && apt-get install -y fonts-ipaexfont
+RUN apt-get install -y fonts-ipaexfont
 
 # install libjpeg & V8 for "psycho"
 RUN apt-get install -y libjpeg-dev
