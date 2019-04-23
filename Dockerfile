@@ -28,6 +28,7 @@ RUN Rscript -e "devtools::install_github('ropenscilabs/gramr')"
 RUN install2.r -s --error \
 bayesplot \
 brms \
+citr \
 coda \
 caret \
 car \
@@ -54,8 +55,7 @@ stargazer \
 stringr \
 tidybayes \
 viridis \
-psycho \
-citr
+psycho
 
 # Install Shiny server
 RUN export ADD=shiny && bash /etc/cont-init.d/add
