@@ -7,6 +7,9 @@ RUN apt-get update \
 && apt-get install -y --no-install-recommends \
 clang
 
+# Install ipaexfont
+RUN apt-get update && apt-get install -y fonts-ipaexfont
+
 # install libjpeg & V8 for "psycho"
 RUN apt-get install -y libjpeg-dev
 RUN apt-get install -y libv8-dev
@@ -48,7 +51,7 @@ pixiedust \
 pROC \
 projpred \
 rstanarm \
-rstantools \ 
+rstantools \
 shinystan \
 sigr \
 stargazer \
