@@ -21,6 +21,40 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 5. You will see the Rstudio on the web browser. Type rstudio in ID column and password that you set in password column.
 
 ## This Dockerfile add following R packages.
+### Templates for writing paper
+
+- rticles              :                Article Formats for R Markdown
+- papaja               :                Prepare reproducible APA journal articles with R Markdown
+
+### Publication-ready figure & table
+
+- papaja               :                Prepare reproducible APA journal articles with R Markdown
+- stargazer            :                Well-Formatted Regression and Summary Statistics Tables
+- pixiedust            :                Tables so Beautifully Fine-Tuned You Will Believe It's Magic
+- ggsci                :                Scientific Journal and Sci-Fi Themed Color Palettes for 'ggplot2'
+
+### Reporting analyzed results
+
+- sigr                 :                Succinct and Correct Statistical Summaries for Reports
+- psycho               :                Efficient and Publishing-Oriented Workflow for Psychological Science
+
+### Statistical analysis packages used in psychology
+
+- BayesFactor       :                   Computation of Bayes Factors for Common Designs
+- blavaan        :                      Bayesian Latent Variable Analysis
+- brms                :                 Bayesian Regression Models using 'Stan'
+- lme4                 :                Linear Mixed-Effects Models using 'Eigen' and S4
+- psych                :                Procedures for Psychological, Psychometric, and Personality Research
+- rstan                :                R Interface to Stan
+- tidyverse            :                Easily Install and Load the 'Tidyverse'
+
+### Add-in of RStudio
+
+- citr                  :               'RStudio' Add-in to Insert Markdown Citations (BibTeX)
+- gramr                :                The Grammar of Grammar
+- wordcountaddin       :                Word counts and readability statistics in R markdown documents
+
+### Other packages
 
 - abind :                                Combine Multidimensional Arrays
 - acepack :                              ACE and AVAS for Selecting Multiple Regression Transformations
@@ -29,7 +63,6 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - assertthat     :                      Easy Pre and Post Assertions
 - backports       :                     Reimplementations of Functions Introduced Since R-3.0.0
 - base64enc        :                    Tools for base64 encoding
-- BayesFactor       :                   Computation of Bayes Factors for Common Designs
 - bayesplot          :                  Plotting for Bayesian Models
 - BDgraph             :                 Bayesian Structure Learning in Graphical Models using Birth-Death MCMC
 - BH                   :                Boost C++ Header Files
@@ -38,12 +71,10 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - bit                     :             A Class for Vectors of 1-Bit Booleans
 - bit64                    :            A S3 Class for Vectors of 64bit Integers :
 - bitops        :                       Bitwise Operations
-- blavaan        :                      Bayesian Latent Variable Analysis
 - blob            :                     A Simple S3 Class for Representing Vectors of Binary Data ('BLOBS')
 - bookdown         :                    Authoring Books and Technical Documents with R Markdown
 - brew              :                   Templating Framework for Report Generation
 - bridgesampling     :                  Bridge Sampling for Marginal Likelihoods and Bayes Factors
-- brms                :                 Bayesian Regression Models using 'Stan'
 - Brobdingnag          :                Very Large Numbers in R
 - broom                 :               Convert Statistical Analysis Objects into Tidy Tibbles
 - callr                  :              Call R from R
@@ -53,7 +84,6 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - caTools               :               Tools: moving window statistics, GIF, Base64, ROC AUC, etc.
 - cellranger            :               Translate Spreadsheet Cell Ranges to Rows and Columns
 - checkmate             :               Fast and Versatile Argument Checks
-- citr                  :               'RStudio' Add-in to Insert Markdown Citations
 - cli                   :               Helpers for Developing Command Line Interfaces
 - clipr                 :               Read and Write from the System Clipboard
 - clisymbols            :               Unicode Symbols at the R Prompt
@@ -106,7 +136,6 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - ggmcmc               :                Tools for Analyzing MCMC Simulations from Bayesian Inference
 - ggplot2              :                Create Elegant Data Visualisations Using the Grammar of Graphics
 - ggridges             :                Ridgeline Plots in 'ggplot2'
-- ggsci                :                Scientific Journal and Sci-Fi Themed Color Palettes for 'ggplot2'
 - ggstance             :                Horizontal 'ggplot2' Components
 - gh                   :                'GitHub' 'API'
 - git2r                :                Provides Access to Git Repositories
@@ -116,7 +145,6 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - glue                 :                Interpreted String Literals
 - gmailr               :                Access the Gmail RESTful API
 - gower                :                Gower's Distance
-- gramr                :                The Grammar of Grammar
 - gridExtra            :                Miscellaneous Functions for "Grid" Graphics
 - gtable               :                Arrange 'Grobs' in Tables
 - gtools               :                Various R Programming Tools
@@ -156,7 +184,6 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - lintr                :                A 'Linter' for R Code
 - listenv              :                Environments Behaving (Almost) as Lists
 - littler              :                R at the Command-Line via 'r'
-- lme4                 :                Linear Mixed-Effects Models using 'Eigen' and S4
 - lmerTest             :                Tests in Linear Mixed Effects Models
 - loo                  :                Efficient Leave-One-Out Cross-Validation and WAIC for Bayesian Models
 - ltm                  :                Latent Trait Models under IRT
@@ -191,14 +218,12 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - openssl              :                Toolkit for Encryption, Signatures and Certificates Based on OpenSSL
 - openxlsx             :                Read, Write and Edit XLSX Files
 - packrat              :                A Dependency Management System for Projects and their R Package Dependencies
-- papaja               :                Prepare reproducible APA journal articles with R Markdown
 - parsedate            :                Recognize and Parse Dates in Various Formats, Including All ISO 8601 Formats
 - pbapply              :                Adding Progress Bar to 'apply' Functions
 - pbivnorm             :                Vectorized Bivariate Normal CDF
 - pbkrtest                             Parametric Bootstrap and Kenward Roger Based Methods for Mixed Model Comparison
 - pillar               :                Coloured Formatting for Columns
 - pingr                :                Check if a Remote Computer is Up
-- pixiedust            :                Tables so Beautifully Fine-Tuned You Will Believe It's Magic
 - pkgbuild             :                Find Tools Needed to Build R Packages
 - pkgconfig            :                Private Configuration for 'R' Packages
 - pkgdown              :                Make Static HTML Documentation for a Package
@@ -219,8 +244,6 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - projpred             :                Projection Predictive Feature Selection
 - promises             :                Abstractions for Promise-Based Asynchronous Programming
 - ps                   :                List, Query, Manipulate System Processes
-- psych                :                Procedures for Psychological, Psychometric, and Personality Research
-- psycho               :                Efficient and Publishing-Oriented Workflow for Psychological Science
 - purrr                :                Functional Programming Tools
 - qgraph               :                Graph Plotting Methods, Psychometric Data Visualization and Graphical Model Estimation
 - quantreg             :                Quantile Regression
@@ -259,11 +282,9 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - rprojroot            :                Finding Files in Project Subdirectories
 - rsconnect            :                Deployment Interface for R Markdown Documents and Shiny Applications
 - RSQLite              :                'SQLite' Interface for R
-- rstan                :                R Interface to Stan
 - rstanarm             :                Bayesian Applied Regression Modeling via Stan
 - rstantools           :                Tools for Developing R Packages Interfacing with 'Stan'
 - rstudioapi           :                Safely Access the RStudio API
-- rticles              :                Article Formats for R Markdown
 - rversions            :                Query 'R' Versions, Including 'r-release' and 'r-oldrel'
 - rvest                :                Easily Harvest (Scrape) Web Pages
 - sandwich             :                Robust Covariance Matrix Estimators
@@ -275,14 +296,12 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - shinyjs              :                Easily Improve the User Experience of Your Shiny Apps in Seconds
 - shinystan            :                Interactive Visual and Numerical Diagnostics and Posterior Analysis for Bayesian Models
 - shinythemes          :                Themes for Shiny
-- sigr                 :                Succinct and Correct Statistical Summaries for Reports
 - sourcetools          :                Tools for Reading, Tokenizing and Parsing R Code
 - sp                   :                Classes and Methods for Spatial Data
 - SparseM              :                Sparse Linear Algebra
 - spelling             :                Tools for Spell Checking in R
 - SQUAREM              :                Squared Extrapolation Methods for Accelerating EM-Like Monotone Algorithms
 - StanHeaders          :                C++ Header Files for Stan
-- stargazer            :                Well-Formatted Regression and Summary Statistics Tables
 - stringdist           :                Approximate String Matching and String Distance Functions
 - stringi              :                Character String Processing Facilities
 - stringr              :                Simple, Consistent Wrappers for Common String Operations
@@ -297,7 +316,6 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - tidybayes            :                Tidy Data and 'Geoms' for Bayesian Models
 - tidyr                :                Easily Tidy Data with 'spread()' and 'gather()' Functions
 - tidyselect           :                Select from a Set of Strings
-- tidyverse            :                Easily Install and Load the 'Tidyverse'
 - timeDate             :                Rmetrics - Chronological and Calendar Objects
 - tinytex              :                Helper Functions to Install and Maintain 'TeX Live', and Compile 'LaTeX'Documents
 - tufte                                Tufte's Styles for R Markdown Documents
@@ -311,7 +329,6 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - whisker              :                {{mustache}} for R, logicless templating
 - whoami              :                 Username, Full Name, Email Address, 'GitHub' Username of the Current User
 - withr                :                Run Code 'With' Temporarily Modified Global State
-- wordcountaddin       :                Word counts and readability statistics in R markdown documents
 - wrapr                :                Wrap R Tools for Debugging and Parametric Programming
 - xfun                 :                Miscellaneous Functions by 'Yihui Xie'
 - XML                  :                Tools for Parsing and Generating XML Within R and S-Plus
