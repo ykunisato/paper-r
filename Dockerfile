@@ -61,7 +61,9 @@ stringr \
 tidybayes \
 viridis \
 psycho \
-googleComputeEngineR
+googleComputeEngineR \
+googleCloudStorageR \
+future
 
 # Install Shiny server
 RUN export ADD=shiny && bash /etc/cont-init.d/add
