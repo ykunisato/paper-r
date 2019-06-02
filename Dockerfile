@@ -60,7 +60,8 @@ stargazer \
 stringr \
 tidybayes \
 viridis \
-psycho
+psycho \
+googleComputeEngineR
 
 # Install Shiny server
 RUN export ADD=shiny && bash /etc/cont-init.d/add
