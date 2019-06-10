@@ -61,6 +61,7 @@ stringr \
 tidybayes \
 viridis \
 psycho \
+apaTables \
 googleComputeEngineR \
 googleCloudStorageR \
 future
