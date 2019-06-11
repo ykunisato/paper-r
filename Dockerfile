@@ -65,8 +65,3 @@ apaTables \
 googleComputeEngineR \
 googleCloudStorageR \
 future
-
-# Install Shiny server
-RUN export ADD=shiny && bash /etc/cont-init.d/add
-
-CMD ["/init"]
