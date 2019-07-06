@@ -217,6 +217,7 @@ docker run -e PASSWORD= password -p 8787:8787 -v ~:/home/rstudio -d --name name_
 - nycflights13         :                Flights that Departed NYC in 2013
 - openssl              :                Toolkit for Encryption, Signatures and Certificates Based on OpenSSL
 - openxlsx             :                Read, Write and Edit XLSX Files
+- parSim :  Parallel Simulation Studies
 - packrat              :                A Dependency Management System for Projects and their R Package Dependencies
 - parsedate            :                Recognize and Parse Dates in Various Formats, Including All ISO 8601 Formats
 - pbapply              :                Adding Progress Bar to 'apply' Functions

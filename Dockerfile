@@ -25,6 +25,7 @@ RUN Rscript -e "devtools::install_github('crsh/papaja')"
 RUN Rscript -e "devtools::install_github('rstudio/rticles')"
 RUN Rscript -e "devtools::install_github('benmarwick/wordcountaddin', type = 'source', dependencies = TRUE)"
 RUN Rscript -e "devtools::install_github('ropenscilabs/gramr')"
+RUN Rscript -e "devtools::install_github('sachaepskamp/parSim')"
 
 # install ipaex font
 RUN Rscript -e "tinytex::tlmgr_install('ipaex')"
