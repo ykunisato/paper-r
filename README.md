@@ -4,6 +4,8 @@ This is a repository of Dockerfile including packages and add-ins that are usefu
 
 Maintainer is Yoshihiko Kunisato (ykunisato@psy.senshu-u.ac.jp)
 
+Keywords: psychology, cognitive science, rstudio, rstan, rmarkdown
+
 ## Usage
 
 1. Install ["Docker Desktop"](https://www.docker.com/products/docker-desktop)
