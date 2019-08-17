@@ -26,6 +26,8 @@ RUN Rscript -e "devtools::install_github('rstudio/rticles')"
 RUN Rscript -e "devtools::install_github('benmarwick/wordcountaddin', type = 'source', dependencies = TRUE)"
 RUN Rscript -e "devtools::install_github('ropenscilabs/gramr')"
 RUN Rscript -e "devtools::install_github('sachaepskamp/parSim')"
+RUN Rscript -e  "devtools::install_github('rstudio/renv')"
+RUN Rscript -e  "devtools::install_github('karthik/holepunch')"
 
 # install ipaex font
 RUN Rscript -e "tinytex::tlmgr_install('ipaex')"
@@ -65,4 +67,6 @@ psycho \
 apaTables \
 googleComputeEngineR \
 googleCloudStorageR \
-future
+future \
+checkpoint \
+packrat
