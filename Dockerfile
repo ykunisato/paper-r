@@ -29,6 +29,12 @@ RUN Rscript -e "devtools::install_github('sachaepskamp/parSim')"
 RUN Rscript -e  "devtools::install_github('rstudio/renv')"
 RUN Rscript -e  "devtools::install_github('karthik/holepunch')"
 
+# jsPsych
+RUN Rscript -e  "devtools::install_github('CrumpLab/jsPsychR')"
+RUN Rscript -e  "devtools::install_github('djnavarro/xprmntr')"
+
+
+
 # install ipaex font
 RUN Rscript -e "tinytex::tlmgr_install('ipaex')"
 
