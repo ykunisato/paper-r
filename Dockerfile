@@ -32,8 +32,7 @@ RUN Rscript -e  "devtools::install_github('karthik/holepunch')"
 # jsPsych
 RUN Rscript -e  "devtools::install_github('CrumpLab/jsPsychR')"
 RUN Rscript -e  "devtools::install_github('djnavarro/xprmntr')"
-
-
+RUN Rscript -e  "devtools::install_github('Kohze/fireData')"
 
 # install ipaex font
 RUN Rscript -e "tinytex::tlmgr_install('ipaex')"
