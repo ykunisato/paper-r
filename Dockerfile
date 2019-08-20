@@ -74,4 +74,8 @@ googleComputeEngineR \
 googleCloudStorageR \
 future \
 checkpoint \
-packrat
+packrat \
+VIM \
+mice \
+semPlot \
+irr
