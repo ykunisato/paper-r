@@ -77,5 +77,4 @@ checkpoint \
 packrat \
 VIM \
 mice \
-semPlot \
 irr
