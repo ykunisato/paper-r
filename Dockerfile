@@ -13,6 +13,9 @@ RUN apt-get install -y fonts-ipaexfont
 RUN apt-get install -y libjpeg-dev
 RUN apt-get install -y libv8-dev
 
+# install ImageMagick++ library for magick
+RUN apt-get install -y libmagick++-dev
+
 # Creates a makevars file and installs rstan from source(https://github.com/stan-dev/rstan/wiki/Installing-RStan-on-Linux)
 COPY inst_stan.r inst_stan.r
 RUN ["r", "inst_stan.r"]
@@ -77,4 +80,6 @@ checkpoint \
 packrat \
 VIM \
 mice \
-irr
+irr  \
+DiagrammeR  \
+magick
