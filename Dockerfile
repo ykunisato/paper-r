@@ -82,4 +82,5 @@ VIM \
 mice \
 irr  \
 DiagrammeR  \
-magick
+magick  \
+roxygen2md
