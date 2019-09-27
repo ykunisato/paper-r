@@ -84,4 +84,5 @@ irr  \
 DiagrammeR  \
 magick  \
 roxygen2md \
-googledrive
+googledrive \
+rdrop2
