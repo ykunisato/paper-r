@@ -83,4 +83,5 @@ mice \
 irr  \
 DiagrammeR  \
 magick  \
-roxygen2md
+roxygen2md \
+googledrive
