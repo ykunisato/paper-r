@@ -85,4 +85,5 @@ DiagrammeR  \
 magick  \
 roxygen2md \
 googledrive \
-rdrop2
+rdrop2 \
+furrr
