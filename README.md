@@ -15,7 +15,7 @@ Keywords: psychology, cognitive science, rstudio, rstan, rmarkdown
 3. Type the following code to pull a Docker container. Change the "password" and "name_of_container" as you like.
 
 ```
-docker run -e PASSWORD=password -p 8787:8787 -v ~:/home/rstudio -d --name name_of_container ykunisato/paper-r
+docker run -e PASSWORD=password -p 8787:8787 -v $PWD:/home/rstudio -d --name name_of_container ykunisato/paper-r
 ```
 
 4. Open the web browser and type "http://localhost:8787/" in the URL bar.
