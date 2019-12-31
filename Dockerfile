@@ -88,3 +88,6 @@ googledrive \
 rdrop2 \
 furrr \
 tidylog
+
+# Add shiny server
+RUN export ADD=shiny && bash /etc/cont-init.d/add
