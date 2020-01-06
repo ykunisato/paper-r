@@ -86,5 +86,4 @@ magick  \
 roxygen2md \
 googledrive \
 rdrop2 \
-furrr \
-tidylog
+furrr
