@@ -37,11 +37,15 @@ RUN Rscript -e  "devtools::install_github('CrumpLab/jsPsychR')"
 RUN Rscript -e  "devtools::install_github('djnavarro/xprmntr')"
 RUN Rscript -e  "devtools::install_github('Kohze/fireData')"
 
+# vertical
+RUN Rscript -e  "devtools::install_github('CrumpLab/vertical')"
+
 # install ipaex font
 RUN Rscript -e "tinytex::tlmgr_install('ipaex')"
 
 # install other R packages
 RUN install2.r -s --error \
+memisc \
 bayesplot \
 brms \
 citr \
