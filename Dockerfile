@@ -43,6 +43,9 @@ RUN Rscript -e  "devtools::install_github('CrumpLab/vertical')"
 # install ipaex font
 RUN Rscript -e "tinytex::tlmgr_install('ipaex')"
 
+# senshuRmd
+RUN Rscript -e "devtools::install_github('ykunisato/senshuRmd')"
+
 # install other R packages
 RUN install2.r -s --error \
 memisc \
