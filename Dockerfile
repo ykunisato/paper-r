@@ -96,4 +96,5 @@ magick  \
 roxygen2md \
 googledrive \
 rdrop2 \
-furrr
+furrr \
+leaflet
