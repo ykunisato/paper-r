@@ -40,6 +40,9 @@ RUN Rscript -e  "devtools::install_github('Kohze/fireData')"
 # vertical
 RUN Rscript -e  "devtools::install_github('CrumpLab/vertical')"
 
+# xaringan
+RUN Rscript -e  "devtools::install_github('yihui/xaringan')"
+
 # install ipaex font
 RUN Rscript -e "tinytex::tlmgr_install('ipaex')"
 
