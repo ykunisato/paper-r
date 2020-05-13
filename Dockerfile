@@ -36,9 +36,10 @@ RUN Rscript -e  "devtools::install_github('karthik/holepunch')"
 RUN Rscript -e  "devtools::install_github('CrumpLab/jsPsychR')"
 RUN Rscript -e  "devtools::install_github('djnavarro/xprmntr')"
 RUN Rscript -e  "devtools::install_github('Kohze/fireData')"
+RUN Rscript -e  "devtools::install_github('ykunisato/jsPsychRmd')"
 
 # vertical
-RUN Rscript -e  "devtools::install_github('CrumpLab/vertical')"
+# RUN Rscript -e  "devtools::install_github('CrumpLab/vertical')"
 
 # xaringan
 RUN Rscript -e  "devtools::install_github('yihui/xaringan')"
