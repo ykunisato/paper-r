@@ -98,4 +98,5 @@ roxygen2md \
 googledrive \
 rdrop2 \
 furrr \
-leaflet
+leaflet \
+osfr
