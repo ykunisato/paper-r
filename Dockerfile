@@ -31,24 +31,22 @@ RUN Rscript -e "devtools::install_github('ropenscilabs/gramr')"
 RUN Rscript -e "devtools::install_github('sachaepskamp/parSim')"
 RUN Rscript -e  "devtools::install_github('rstudio/renv')"
 RUN Rscript -e  "devtools::install_github('karthik/holepunch')"
+RUN Rscript -e "devtools::install_github('easystats/easystats')"
+RUN Rscript -e  "devtools::install_github('yihui/xaringan')"
+RUN Rscript -e "tinytex::tlmgr_install('ipaex')"
 
 # jsPsych
 RUN Rscript -e  "devtools::install_github('CrumpLab/jsPsychR')"
 RUN Rscript -e  "devtools::install_github('djnavarro/xprmntr')"
 RUN Rscript -e  "devtools::install_github('Kohze/fireData')"
-RUN Rscript -e  "devtools::install_github('ykunisato/jsPsychRmd')"
 
 # vertical
 # RUN Rscript -e  "devtools::install_github('CrumpLab/vertical')"
 
-# xaringan
-RUN Rscript -e  "devtools::install_github('yihui/xaringan')"
-
-# install ipaex font
-RUN Rscript -e "tinytex::tlmgr_install('ipaex')"
-
-# senshuRmd
+# Kunisato lab packages
 RUN Rscript -e "devtools::install_github('ykunisato/senshuRmd')"
+RUN Rscript -e  "devtools::install_github('ykunisato/jsPsychRmd')"
+RUN Rscript -e  "devtools::install_github('ykunisato/openPsychData')"
 
 # install other R packages
 RUN install2.r -s --error \
