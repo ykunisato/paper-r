@@ -41,7 +41,7 @@ RUN Rscript -e  "devtools::install_github('djnavarro/xprmntr')"
 RUN Rscript -e  "devtools::install_github('Kohze/fireData')"
 
 # vertical
-# RUN Rscript -e  "devtools::install_github('CrumpLab/vertical')"
+RUN Rscript -e  "devtools::install_github('CrumpLab/vertical')"
 
 # Kunisato lab packages
 RUN Rscript -e "devtools::install_github('ykunisato/senshuRmd')"
