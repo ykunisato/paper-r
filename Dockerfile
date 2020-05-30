@@ -31,7 +31,7 @@ RUN Rscript -e "devtools::install_github('ropenscilabs/gramr')"
 RUN Rscript -e "devtools::install_github('sachaepskamp/parSim')"
 RUN Rscript -e  "devtools::install_github('rstudio/renv')"
 RUN Rscript -e  "devtools::install_github('karthik/holepunch')"
-RUN Rscript -e "devtools::install_github('easystats/easystats')"
+# RUN Rscript -e "devtools::install_github('easystats/easystats')"
 RUN Rscript -e  "devtools::install_github('yihui/xaringan')"
 RUN Rscript -e "tinytex::tlmgr_install('ipaex')"
 
@@ -41,7 +41,7 @@ RUN Rscript -e  "devtools::install_github('djnavarro/xprmntr')"
 RUN Rscript -e  "devtools::install_github('Kohze/fireData')"
 
 # vertical
-RUN Rscript -e  "devtools::install_github('CrumpLab/vertical')"
+# RUN Rscript -e  "devtools::install_github('CrumpLab/vertical')"
 
 # Kunisato lab packages
 RUN Rscript -e "devtools::install_github('ykunisato/senshuRmd')"
