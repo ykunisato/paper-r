@@ -23,7 +23,6 @@ RUN ["r", "inst_stan.r"]
 # install CMDSTAN_HOME
 RUN Rscript -e "install.packages('cmdstanr', repos = c('https://mc-stan.org/r-packages/', getOption('repos')))"
 RUN Rscript -e "install.packages('posterior', repos = c('https://mc-stan.org/r-packages/', getOption('repos')))"
-RUN Rscript -e "library(cmdstanr);install_cmdstan()"
 
 # install devtools & R package from github
 RUN install2.r -s --error \
@@ -105,3 +104,5 @@ rdrop2 \
 furrr \
 leaflet \
 osfr
+
+CMD["Rscript","library(cmdstanr);install_cmdstan()"]
