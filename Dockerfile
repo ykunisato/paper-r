@@ -20,6 +20,11 @@ RUN apt-get install -y libmagick++-dev
 COPY inst_stan.r inst_stan.r
 RUN ["r", "inst_stan.r"]
 
+# install CMDSTAN_HOME
+RUN Rscript -e "install.packages('cmdstanr', repos = c('https://mc-stan.org/r-packages/', getOption('repos')))"
+RUN Rscript -e "install.packages('posterior', repos = c('https://mc-stan.org/r-packages/', getOption('repos')))"
+RUN Rscript -e "library(cmdstanr);install_cmdstan()"
+
 # install devtools & R package from github
 RUN install2.r -s --error \
 devtools
@@ -31,7 +36,7 @@ RUN Rscript -e "devtools::install_github('ropenscilabs/gramr')"
 RUN Rscript -e "devtools::install_github('sachaepskamp/parSim')"
 RUN Rscript -e  "devtools::install_github('rstudio/renv')"
 RUN Rscript -e  "devtools::install_github('karthik/holepunch')"
-# RUN Rscript -e "devtools::install_github('easystats/easystats')"
+RUN Rscript -e "devtools::install_github('easystats/easystats')"
 RUN Rscript -e  "devtools::install_github('yihui/xaringan')"
 RUN Rscript -e "tinytex::tlmgr_install('ipaex')"
 
@@ -41,7 +46,7 @@ RUN Rscript -e  "devtools::install_github('djnavarro/xprmntr')"
 RUN Rscript -e  "devtools::install_github('Kohze/fireData')"
 
 # vertical
-# RUN Rscript -e  "devtools::install_github('CrumpLab/vertical')"
+RUN Rscript -e  "devtools::install_github('CrumpLab/vertical')"
 
 # Kunisato lab packages
 RUN Rscript -e "devtools::install_github('ykunisato/senshuRmd')"

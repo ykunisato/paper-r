@@ -49,6 +49,8 @@ docker run -e PASSWORD=password -p 8787:8787 -v $PWD:/home/rstudio -d --name nam
 - psych                :                Procedures for Psychological, Psychometric, and Personality Research
 - rstan                :                R Interface to Stan
 - tidyverse            :                Easily Install and Load the 'Tidyverse'
+- posterior            :                useful tools for fitting Bayesian models or working with output from Bayesian models
+- cmdstanr             :                Lightweight interface to Stan for R users
 
 ### Add-in of RStudio
 
