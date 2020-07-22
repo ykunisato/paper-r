@@ -52,6 +52,7 @@ docker run -e PASSWORD=password -p 8787:8787 -v $PWD:/home/rstudio -d --name nam
 - posterior            :                useful tools for fitting Bayesian models or working with output from Bayesian models
 - cmdstanr             :                Lightweight interface to Stan for R users
 
+If you will use cmdstan first time, you should type "install_cmdstan()" in Consol.
 
 ### Add-in of RStudio
 

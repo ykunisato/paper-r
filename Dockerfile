@@ -104,5 +104,3 @@ rdrop2 \
 furrr \
 leaflet \
 osfr
-
-CMD["Rscript","library(cmdstanr);install_cmdstan()"]
