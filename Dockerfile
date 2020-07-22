@@ -70,6 +70,7 @@ ggsci \
 gridExtra \
 ggridges \
 glmnet \
+kableExtra \
 lme4 \
 ltm \
 loo \
@@ -86,6 +87,7 @@ stringr \
 tidybayes \
 viridis \
 psycho \
+psych \
 apaTables \
 googleComputeEngineR \
 googleCloudStorageR \
