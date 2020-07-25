@@ -103,4 +103,5 @@ googledrive \
 rdrop2 \
 furrr \
 leaflet \
-osfr
+osfr \
+xaringanthemer
