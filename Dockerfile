@@ -104,4 +104,7 @@ rdrop2 \
 furrr \
 leaflet \
 osfr \
-xaringanthemer
+xaringanthemer \
+patchwork \
+pso \
+latex2exp
