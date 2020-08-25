@@ -99,8 +99,9 @@ remotes::install_github(c("crsh/papaja",
 "CrumpLab/vertical",
 "ykunisato/senshuRmd",
 "ykunisato/jsPsychRmd",
-"ykunisato/openPsychData",
-"MathiasHarrer/dmetar"), dependencies = TRUE)
+"ykunisato/openPsychData"), dependencies = TRUE)
+
+# "MathiasHarrer/dmetar"
 
 # install ipaex for Japanese
 tinytex::tlmgr_install("ipaex")
