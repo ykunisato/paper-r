@@ -14,10 +14,18 @@ RUN apt-get install -y libmagick++-dev
 # install clang for Rstan
 RUN apt-get install -y clang make
 
-# set github_PAT
-# ARG GITHUB_PAT
-# RUN set -x && \
-#  echo "GITHUB_PAT=$GITHUB_PAT" >> /usr/local/lib/R/etc/Renviron
+# Install JAGS and other linux packages
+RUN apt-get update && apt-get install -y \
+    jags \
+    libgsl0-dev \
+    tcl8.6-dev \
+    tk8.6-dev\
+    openmpi-bin\
+    libglpk-dev \
+    libcgal-dev \
+    libglu1-mesa-dev \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/*
 
 # install R packages
 COPY install_r.r install_r.r

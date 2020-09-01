@@ -17,19 +17,6 @@ install.packages("posterior", repos = c("https://mc-stan.org/r-packages/", getOp
 library(cmdstanr)
 install_cmdstan()
 
-# Install JAGS and other linux packages
-RUN apt-get update && apt-get install -y \
-    jags \
-    libgsl0-dev \
-    tcl8.6-dev \
-    tk8.6-dev\
-    openmpi-bin\
-    libglpk-dev \
-    libcgal-dev \
-    libglu1-mesa-dev \
-&& apt-get clean \
-&& rm -rf /var/lib/apt/lists/*
-
 # install R packages from CRAN
 install.packages(c("devtools",
 "remotes",
