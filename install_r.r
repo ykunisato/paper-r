@@ -81,8 +81,43 @@ install.packages(c("devtools",
 "performance",
 "see",
 "report",
-"correlation"
+"correlation",
+"rjags",
+"Rsolnp",
+"ReinforcementLearning",
+"MDPtoolbox",
+"rtdists",
+"DstarM",
+"hBayesDM",
+"truncdist",
+"statmod",
+"pracma",
+"snowfall",
+"rlecuyer",
+"vioplot",
+"BiocManager",
+"gemtc",
+"netmeta",
+"ggnetwork",
+"qgraph",
+"IsingFit",
+"IsingSampler",
+"mlVAR",
+"graphicalVAR",
+"bootnet",
+"mgm",
+"NetworkComparisonTest",
+"networktools",
+"gimme",
+"NetworkToolbox",
+"pcalg",
+"networktree",
+"bnlearn",
+"semPlot",
+"EGAnet"
 ), error = TRUE, dependencies = TRUE)
+
+BiocManager::install(c("graph", "RBGL", "Rgraphviz"), update = TRUE, ask = FALSE)
 
 # install R packages from GitHub
 remotes::install_github(c("crsh/papaja",
@@ -99,8 +134,13 @@ remotes::install_github(c("crsh/papaja",
 "CrumpLab/vertical",
 "ykunisato/senshuRmd",
 "ykunisato/jsPsychRmd",
-"ykunisato/openPsychData"), dependencies = TRUE)
+"ykunisato/openPsychData",
+"yxlin/ggdmc",
+"craddm/eegUtils",
+"donaldRwilliams/GGMnonreg",
+"donaldRwilliams/BGGM"), dependencies = TRUE)
 
+#"sachaepskamp/psychonetrics"
 # "MathiasHarrer/dmetar"
 
 # install ipaex for Japanese
