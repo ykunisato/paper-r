@@ -136,7 +136,6 @@ remotes::install_github(c("crsh/papaja",
 "ykunisato/jsPsychRmd",
 "ykunisato/openPsychData",
 "yxlin/ggdmc",
-"craddm/eegUtils",
 "donaldRwilliams/GGMnonreg",
 "donaldRwilliams/BGGM"), dependencies = TRUE)
 
