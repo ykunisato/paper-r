@@ -135,11 +135,11 @@ remotes::install_github(c("crsh/papaja",
 "ykunisato/senshuRmd",
 "ykunisato/jsPsychRmd",
 "ykunisato/openPsychData",
-"yxlin/ggdmc",
 "donaldRwilliams/GGMnonreg",
 "donaldRwilliams/BGGM"), dependencies = TRUE)
 
-#"sachaepskamp/psychonetrics"
+# "yxlin/ggdmc"
+# "sachaepskamp/psychonetrics"
 # "MathiasHarrer/dmetar"
 
 # install ipaex for Japanese
