@@ -1,48 +1,63 @@
 # Dockerfile of writing paper by R Markdown
 
-This is a repository of Dockerfile including packages and add-ins that are useful for writing articles with R Markdown in Rstudio. This Dockerfile is based on rocker/verse. Installing rstan conducted by the method described in antoine-sachet / rocker-ML.
+This Dockerfile was developed for the Japanesese R users (So, it contains settings of Japanese environment). English version of this dockerfile is [here]((https://hub.docker.com/r/ykunisato/paper-r).
 
-[日本語/Japanese](README_jp.md)
+これは，RstudioでR Markdownを用いて論文執筆を行う際に便利なパッケージやアドインを含めたDockerファイルのリポジトリです。このDockerファイルでは，[アカデミアのためのRSTUDIO](https://ytake2.github.io/create.manuscript/RStudio_for_Academia.html)にて紹介されているパッケージは大体用意できます。各種パッケージやアドインの詳細は，[アカデミアのためのRSTUDIO](https://ytake2.github.io/create.manuscript/RStudio_for_Academia.html)を参照ください。
 
-Maintainer is Yoshihiko Kunisato (ykunisato@psy.senshu-u.ac.jp)
+本Dockerファイルは，rocker/verseをベースにし，antoine-sachet/rocker-MLに記載されている方法を使ってrstanをインストールし，いくつかR Markdown関連のパッケージを追加しています。また，日本語環境の設定は，[rocker-jp/verse](https://github.com/rocker-jp/verse)を参考にしています。
 
-Keywords: psychology, cognitive science, rstudio, rstan, rmarkdown
+作成者は専修大学人間科学部心理学科の国里愛彦です (ykunisato@psy.senshu-u.ac.jp)。エラーや追加してほしいパッケージなどがありましたら，気軽にご連絡ください。
 
-## Usage
+Keywords: 心理学, 認知科学, 分析・執筆，rstudio, rstan, rmarkdown
 
-1. Install ["Docker Desktop"](https://www.docker.com/products/docker-desktop)
+## 使用法
 
-2. Open "terminal"(Mac) or Command Prompt(Win, I don't know Win. Sorry!)
+Docker Desktopがインストールされていて，ある程度の通信速度があれば，数分で使用可能です。
 
-3. Type the following code to pull a Docker container. Change the "password" and "name_of_container" as you like.
+1.Docker Desktop ( https://www.docker.com/products/docker-desktop )をインストールする。
+
+2.ターミナル（Macの場合。Winはコマンドプロンプト？)を開く
+
+3.ターミナルに以下を打ち込んで、コンテナーをrunする(runの前にPullが自動的なされます)。パスワードとコンテナ名はご自身の好きなように設定ください。
 
 ```
-docker run -e PASSWORD=password -p 8787:8787 -v $PWD:/home/rstudio -d --name name_of_container ykunisato/paper-r
+docker run -e PASSWORD=パスワード -p 8787:8787 -v $PWD:/home/rstudio -d --name コンテナ名 ykunisato/paper-r-jp
 ```
 
-4. Open the web browser and type "http://localhost:8787/" in the URL bar.
+4.ブラウザを開いて，urlバー（アドレスバー）に，http://localhost:8787/ とタイプする
 
-5. You will see the Rstudio on the web browser. Type rstudio in ID column and password that you set in password column.
+5.ブラウザ上にRstudioが出てくるので，IDにrstudio，パスに上記で設定したパスワードをいれる。
 
-## This Dockerfile add following R packages.
-### Templates for writing paper
+## Docker間の依存関係について
+
+国里(ykunisato)が管理しているRStudio用Dockerコンテナとその依存関係は以下になります。
+
+- [ykunisato/paper-r](https://hub.docker.com/r/ykunisato/paper-r) : 心理学系使いそうなRパッケージを入れたコンテナ（rocker/verseをベースに作成）
+- [ykunisato/paper-r-jp](https://hub.docker.com/r/ykunisato/paper-r-jp) : ykunisato/paper-rをベースに日本語環境化したコンテナ（本コンテナ）
+- [ykunisato/ccp-lab-r](https://hub.docker.com/r/ykunisato/ccp-lab-r) : ykunisato/paper-rをベースに認知モデリング,心理学的ネットワーク分析，ネットワークメタ分析で使用するパッケージを追加したコンテナ
+- [ykunisato/ccp-lab-r-jp](https://hub.docker.com/r/ykunisato/ccp-lab-rjp) : ykunisato/ccp-lab-rをベースに日本語環境化したコンテナ
+
+
+
+## 事前にインストールされている追加のRパッケージ
+### 論文のテンプレート系パッケージ
 
 - rticles              :                Article Formats for R Markdown
 - papaja               :                Prepare reproducible APA journal articles with R Markdown
 
-### Publication-ready figure & table
+### 図表作成用パッケージ
 
 - papaja               :                Prepare reproducible APA journal articles with R Markdown
 - stargazer            :                Well-Formatted Regression and Summary Statistics Tables
 - pixiedust            :                Tables so Beautifully Fine-Tuned You Will Believe It's Magic
 - ggsci                :                Scientific Journal and Sci-Fi Themed Color Palettes for 'ggplot2'
 
-### Reporting analyzed results
+### 解析結果の報告用パッケージ
 
 - sigr                 :                Succinct and Correct Statistical Summaries for Reports
 - psycho               :                Efficient and Publishing-Oriented Workflow for Psychological Science
 
-### Statistical analysis packages used in psychology
+### 心理学などで使用しそうな解析パッケージ
 
 - BayesFactor       :                   Computation of Bayes Factors for Common Designs
 - blavaan        :                      Bayesian Latent Variable Analysis
@@ -51,18 +66,20 @@ docker run -e PASSWORD=password -p 8787:8787 -v $PWD:/home/rstudio -d --name nam
 - psych                :                Procedures for Psychological, Psychometric, and Personality Research
 - rstan                :                R Interface to Stan
 - tidyverse            :                Easily Install and Load the 'Tidyverse'
-- posterior            :                useful tools for fitting Bayesian models or working with output from Bayesian models
-- cmdstanr             :                Lightweight interface to Stan for R users
 
-If you will use cmdstan first time, you should type "install_cmdstan()" in Consol.
-
-### Add-in of RStudio
+### RStudioの便利なアドイン
 
 - citr                  :               'RStudio' Add-in to Insert Markdown Citations (BibTeX)
 - gramr                :                The Grammar of Grammar
 - wordcountaddin       :                Word counts and readability statistics in R markdown documents
 
-### Other packages
+### Google Compute Engine関係
+
+- googleComputeEngineR : R Interface with Google Compute Engine
+- googleCloudStorageR :  Interface with Google Cloud Storage API
+- future : Unified Parallel and Distributed Processing in R for Everyone
+
+### その他
 
 - abind :                                Combine Multidimensional Arrays
 - acepack :                              ACE and AVAS for Selecting Multiple Regression Transformations
@@ -225,7 +242,6 @@ If you will use cmdstan first time, you should type "install_cmdstan()" in Conso
 - nycflights13         :                Flights that Departed NYC in 2013
 - openssl              :                Toolkit for Encryption, Signatures and Certificates Based on OpenSSL
 - openxlsx             :                Read, Write and Edit XLSX Files
-- parSim :  Parallel Simulation Studies
 - packrat              :                A Dependency Management System for Projects and their R Package Dependencies
 - parsedate            :                Recognize and Parse Dates in Various Formats, Including All ISO 8601 Formats
 - pbapply              :                Adding Progress Bar to 'apply' Functions
