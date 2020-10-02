@@ -138,9 +138,9 @@ remotes::install_github(c("crsh/papaja",
 "ykunisato/openPsychData",
 "donaldRwilliams/GGMnonreg",
 "donaldRwilliams/BGGM",
-"cjvanlissa/worcs"), dependencies = TRUE)
+"cjvanlissa/worcs",
+"MathiasHarrer/dmetar"), dependencies = TRUE)
 
-# "MathiasHarrer/dmetar"
 # "sachaepskamp/psychonetrics"
 
 # install ipaex for Japanese
