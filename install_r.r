@@ -114,7 +114,8 @@ install.packages(c("devtools",
 "networktree",
 "bnlearn",
 "semPlot",
-"EGAnet"
+"EGAnet",
+"ggExtra"
 ), error = TRUE, dependencies = TRUE)
 
 BiocManager::install(c("graph", "RBGL", "Rgraphviz"), update = TRUE, ask = FALSE)
