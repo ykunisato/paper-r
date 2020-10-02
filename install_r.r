@@ -137,10 +137,11 @@ remotes::install_github(c("crsh/papaja",
 "yxlin/ggdmc",
 "ykunisato/openPsychData",
 "donaldRwilliams/GGMnonreg",
-"donaldRwilliams/BGGM"), dependencies = TRUE)
+"donaldRwilliams/BGGM",
+"cjvanlissa/worcs"), dependencies = TRUE)
 
-# "sachaepskamp/psychonetrics"
 # "MathiasHarrer/dmetar"
+# "sachaepskamp/psychonetrics"
 
 # install ipaex for Japanese
 tinytex::tlmgr_install("ipaex")
