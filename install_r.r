@@ -116,6 +116,7 @@ install.packages(c("devtools",
 "semPlot",
 "EGAnet",
 "ggExtra"
+"jtools"
 ), error = TRUE, dependencies = TRUE)
 
 BiocManager::install(c("graph", "RBGL", "Rgraphviz"), update = TRUE, ask = FALSE)
