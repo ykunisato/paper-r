@@ -115,7 +115,7 @@ install.packages(c("devtools",
 "bnlearn",
 "semPlot",
 "EGAnet",
-"ggExtra"
+"ggExtra",
 "jtools"
 ), error = TRUE, dependencies = TRUE)
 
