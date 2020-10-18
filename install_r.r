@@ -141,9 +141,9 @@ remotes::install_github(c("crsh/papaja",
 "yxlin/ggdmc",
 "donaldRwilliams/GGMnonreg",
 "donaldRwilliams/BGGM",
-"cjvanlissa/worcs",
-"MathiasHarrer/dmetar"), dependencies = TRUE)
+"cjvanlissa/worcs"), dependencies = TRUE)
 
+# "MathiasHarrer/dmetar"
 # "sachaepskamp/psychonetrics"
 
 # install ipaex for Japanese
