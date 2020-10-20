@@ -126,13 +126,12 @@ remotes::install_github(c("crsh/papaja",
 "rstudio/rticles",
 "benmarwick/wordcountaddin",
 "ropenscilabs/gramr",
-"sachaepskamp/parSim",
+"MathiasHarrer/dmetar",
 "rstudio/renv",
 "karthik/holepunch",
 "yihui/xaringan",
 "CrumpLab/jsPsychR",
 "djnavarro/xprmntr",
-"Kohze/fireData",
 "CrumpLab/vertical",
 "ykunisato/senshuRmd",
 "ykunisato/jsPsychRmd",
@@ -143,8 +142,11 @@ remotes::install_github(c("crsh/papaja",
 "donaldRwilliams/BGGM",
 "cjvanlissa/worcs"), dependencies = TRUE)
 
+# "ykunisato/openPsychData"
 # "MathiasHarrer/dmetar"
 # "sachaepskamp/psychonetrics"
+# "Kohze/fireData"
+# "sachaepskamp/parSim"
 
 # install ipaex for Japanese
 tinytex::tlmgr_install("ipaex")
