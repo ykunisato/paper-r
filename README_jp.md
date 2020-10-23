@@ -16,9 +16,20 @@ Docker Desktopがインストールされていて，ある程度の通信速度
 
 3.ターミナルに以下を打ち込んで、コンテナーをrunする(runの前にPullが自動的なされます)。パスワードとコンテナ名はご自身の好きなように設定ください。
 
+**Mac**
+
+
 ```
-docker run -e PASSWORD=パスワード -p 8787:8787 -v $PWD:/home/rstudio -d --name コンテナ名 ykunisato/paper-r-jp
+docker run -e PASSWORD=パスワード -p 8787:8787 -v $PWD:/home/rstudio -d --name コンテナ名 ykunisato/paper-r
 ```
+
+**Windows**
+
+
+```
+docker run -e PASSWORD=パスワード -p 8787:8787 -v "%cd%":/home/rstudio -d --name コンテナ名 ykunisato/paper-r
+```
+
 
 4.ブラウザを開いて，urlバー（アドレスバー）に，http://localhost:8787/ とタイプする
 
