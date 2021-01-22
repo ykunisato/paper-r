@@ -17,13 +17,17 @@ install.packages("posterior", repos = c("https://mc-stan.org/r-packages/", getOp
 library(cmdstanr)
 install_cmdstan()
 
-# install R packages from CRAN
 install.packages(c("devtools",
 "remotes",
-"memisc",
+"BiocManager"
+), error = TRUE, dependencies = TRUE)
+
+BiocManager::install(c("graph", "RBGL", "Rgraphviz"), update = TRUE, ask = FALSE)
+
+# install R packages from CRAN
+install.packages(c("memisc",
 "bayesplot",
 "brms",
-"citr",
 "coda",
 "caret",
 "car",
@@ -80,7 +84,6 @@ install.packages(c("devtools",
 "bayestestR",
 "performance",
 "see",
-"report",
 "correlation",
 "rjags",
 "Rsolnp",
@@ -95,7 +98,6 @@ install.packages(c("devtools",
 "snowfall",
 "rlecuyer",
 "vioplot",
-"BiocManager",
 "gemtc",
 "netmeta",
 "ggnetwork",
@@ -110,7 +112,6 @@ install.packages(c("devtools",
 "networktools",
 "gimme",
 "NetworkToolbox",
-"pcalg",
 "networktree",
 "bnlearn",
 "semPlot",
@@ -120,13 +121,9 @@ install.packages(c("devtools",
 "bookdown"
 ), error = TRUE, dependencies = TRUE)
 
-BiocManager::install(c("graph", "RBGL", "Rgraphviz"), update = TRUE, ask = FALSE)
-
 # install R packages from GitHub
 remotes::install_github(c("crsh/papaja",
 "rstudio/rticles",
-"benmarwick/wordcountaddin",
-"ropenscilabs/gramr",
 "MathiasHarrer/dmetar",
 "rstudio/renv",
 "karthik/holepunch",
@@ -137,9 +134,11 @@ remotes::install_github(c("crsh/papaja",
 "benmarwick/rrtools",
 "yxlin/ggdmc",
 "donaldRwilliams/GGMnonreg",
-"donaldRwilliams/BGGM",
 "cjvanlissa/worcs"), dependencies = TRUE)
 
+# "donaldRwilliams/BGGM"
+# "ropenscilabs/gramr"
+# "benmarwick/wordcountaddin"
 # "ykunisato/openPsychData"
 # "MathiasHarrer/dmetar"
 # "sachaepskamp/psychonetrics"
