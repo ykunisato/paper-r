@@ -18,10 +18,15 @@ Docker Desktopがインストールされていて，ある程度の通信速度
 
 **Mac**
 
+```
+docker run -e PASSWORD=パスワード -p 8787:8787 -v $(pwd):/home/rstudio -d --name コンテナ名 ykunisato/paper-r
+```
+or
 
 ```
-docker run -e PASSWORD=パスワード -p 8787:8787 -v $PWD:/home/rstudio -d --name コンテナ名 ykunisato/paper-r
+docker run -e PASSWORD=パスワード -e DISABLE_AUTH=true -p 8787:8787 -v $(pwd):/home/rstudio -d --name コンテナ名 ykunisato/paper-r
 ```
+
 
 **Windows**
 
