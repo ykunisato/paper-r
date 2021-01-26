@@ -118,7 +118,8 @@ install.packages(c("memisc",
 "EGAnet",
 "ggExtra",
 "jtools",
-"bookdown"
+"bookdown",
+"prereg"
 ), error = TRUE, dependencies = TRUE)
 
 # install R packages from GitHub
