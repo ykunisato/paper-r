@@ -119,7 +119,8 @@ install.packages(c("memisc",
 "ggExtra",
 "jtools",
 "bookdown",
-"prereg"
+"prereg",
+"equatiomatic"
 ), error = TRUE, dependencies = TRUE)
 
 # install R packages from GitHub
