@@ -120,7 +120,8 @@ install.packages(c("memisc",
 "jtools",
 "bookdown",
 "prereg",
-"equatiomatic"
+"equatiomatic",
+"metaSEM"
 ), error = TRUE, dependencies = TRUE)
 
 # install R packages from GitHub
