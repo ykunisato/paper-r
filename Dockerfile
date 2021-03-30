@@ -1,8 +1,13 @@
 FROM rocker/verse
 LABEL maintainer="Yoshihiko Kunisato <kunisato@psy.senshu-u.ac.jp>"
 
-# Install ipaexfont
+
+# Install libgit2
+RUN add-apt-repository ppa:cran/libgit2
 RUN apt-get update
+RUN apt-get install libgit2-dev
+
+# Install ipaexfont
 RUN apt-get install -y fonts-ipaexfont
 
 # install libjpeg & V8 for "psycho"
