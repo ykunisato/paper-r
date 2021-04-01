@@ -121,12 +121,12 @@ install.packages(c("memisc",
 "bookdown",
 "prereg",
 "equatiomatic",
-"metaSEM"
+"metaSEM",
+"rticles"
 ), error = TRUE, dependencies = TRUE)
 
 # install R packages from GitHub
 remotes::install_github(c("crsh/papaja",
-"rstudio/rticles",
 "MathiasHarrer/dmetar",
 "rstudio/renv",
 "karthik/holepunch",
@@ -134,6 +134,7 @@ remotes::install_github(c("crsh/papaja",
 "ykunisato/senshuRmd",
 "ykunisato/jsPsychRmd",
 "ykunisato/jpaRmd",
+"ykunisato/eln4Rmd",
 "benmarwick/rrtools",
 "yxlin/ggdmc",
 "donaldRwilliams/GGMnonreg",
