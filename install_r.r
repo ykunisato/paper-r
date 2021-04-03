@@ -153,4 +153,4 @@ remotes::install_github(c("crsh/papaja",
 # "CrumpLab/vertical",
 
 # install ipaex for Japanese
-# tinytex::tlmgr_install("ipaex")
+tinytex::tlmgr_install("ipaex")
