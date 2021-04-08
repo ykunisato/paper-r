@@ -138,6 +138,7 @@ remotes::install_github(c("crsh/papaja",
 "benmarwick/rrtools",
 "yxlin/ggdmc",
 "donaldRwilliams/GGMnonreg",
+"miraisolutions/compareWith",
 "cjvanlissa/worcs"), dependencies = TRUE)
 
 # "donaldRwilliams/BGGM"
