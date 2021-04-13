@@ -122,7 +122,8 @@ install.packages(c("memisc",
 "prereg",
 "equatiomatic",
 "metaSEM",
-"rticles"
+"rticles",
+"neuralnet"
 ), error = TRUE, dependencies = TRUE)
 
 # install R packages from GitHub
