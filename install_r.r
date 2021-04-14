@@ -123,7 +123,9 @@ install.packages(c("memisc",
 "equatiomatic",
 "metaSEM",
 "rticles",
-"neuralnet"
+"neuralnet",
+"qlcMatrix",
+"gtrendsR"
 ), error = TRUE, dependencies = TRUE)
 
 # install R packages from GitHub
