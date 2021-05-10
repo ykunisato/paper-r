@@ -125,7 +125,8 @@ install.packages(c("memisc",
 "rticles",
 "neuralnet",
 "qlcMatrix",
-"gtrendsR"
+"gtrendsR",
+"rjson"
 ), error = TRUE, dependencies = TRUE)
 
 # install R packages from GitHub
