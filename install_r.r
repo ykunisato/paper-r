@@ -13,7 +13,7 @@ cat("\nCXX14FLAGS=-O3 -march=native -mtune=native",
 
 # install CMDSTAN_HOME
 install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
-install.packages("posterior", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
+remotes::install_github("stan-dev/posterior")
 library(cmdstanr)
 install_cmdstan()
 
