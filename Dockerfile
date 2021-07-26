@@ -5,6 +5,9 @@ LABEL maintainer="Yoshihiko Kunisato <kunisato@psy.senshu-u.ac.jp>"
 RUN apt-get update
 RUN apt-get install -y fonts-ipaexfont
 
+# Insatall notofont
+RUN apt-get install -y fonts-noto-cjk
+
 # install libjpeg & V8 for "psycho"
 RUN apt-get install -y libjpeg-dev libv8-dev
 
