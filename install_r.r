@@ -12,8 +12,8 @@ cat("\nCXX14FLAGS=-O3 -march=native -mtune=native",
     file = M, sep = "\n", append = TRUE)
 
 # install CMDSTAN_HOME
-install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
 remotes::install_github("stan-dev/posterior")
+install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", getOption("repos")))
 library(cmdstanr)
 install_cmdstan()
 
