@@ -26,6 +26,7 @@ BiocManager::install(c("graph", "RBGL", "Rgraphviz"), update = TRUE, ask = FALSE
 
 # install R packages from CRAN
 install.packages(c("memisc",
+"imager",
 "bayesplot",
 "brms",
 "coda",
