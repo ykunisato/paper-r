@@ -6,7 +6,7 @@ RUN apt-get update
 RUN apt-get install -y fonts-ipaexfont
 
 # Insatall notofont
-RUN apt-get install -y fonts-noto-cjk
+RUN apt-get install -y fonts-noto-cjk fonts-noto-cjk-extra
 
 # install libjpeg & V8 for "psycho"
 RUN apt-get install -y libjpeg-dev libv8-dev
