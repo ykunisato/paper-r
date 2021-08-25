@@ -1,4 +1,4 @@
-FROM rocker/verse:4.0.5
+FROM rocker/verse:4.1.0
 LABEL maintainer="Yoshihiko Kunisato <kunisato@psy.senshu-u.ac.jp>"
 
 # Install ipaexfont
