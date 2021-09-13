@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y \
 && rm -rf /var/lib/apt/lists/*
 
 # install sqlite
-RUN apt install sqlite
+RUN apt install -y sqlite
 
 # install R packages
 COPY install_r.r install_r.r
