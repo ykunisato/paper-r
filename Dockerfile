@@ -30,8 +30,8 @@ RUN apt-get update && apt-get install -y \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
-# install sqlite
-RUN apt install -y sqlite
+# install sqlite3
+RUN apt install -y sqlite3
 
 # install R packages
 COPY install_r.r install_r.r
