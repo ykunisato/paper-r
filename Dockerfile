@@ -31,6 +31,7 @@ RUN apt-get update && apt-get install -y \
 && rm -rf /var/lib/apt/lists/*
 
 # install sqlite3
+RUN apt-get update
 RUN apt-get install -y sqlite3
 
 # install R packages
