@@ -127,7 +127,10 @@ install.packages(c("memisc",
 "neuralnet",
 "qlcMatrix",
 "gtrendsR",
-"rjson"
+"rjson",
+"keyring",
+"reticulate",
+"JuliaCall"
 ), error = TRUE, dependencies = TRUE)
 
 # install R packages from GitHub
