@@ -139,28 +139,14 @@ remotes::install_github(c("crsh/papaja",
 "rstudio/renv",
 "karthik/holepunch",
 "yihui/xaringan",
-"ykunisato/senshuRmd",
-"ykunisato/jsPsychRmd",
 "ykunisato/jpaRmd",
-"ykunisato/eln4Rmd",
+"ykunisato/psyinfr",
 "benmarwick/rrtools",
 "yxlin/ggdmc",
 "donaldRwilliams/GGMnonreg",
 "miraisolutions/compareWith",
 "cjvanlissa/worcs",
 "ltl-manabi/olp"), dependencies = TRUE)
-
-# "donaldRwilliams/BGGM"
-# "ropenscilabs/gramr"
-# "benmarwick/wordcountaddin"
-# "ykunisato/openPsychData"
-# "MathiasHarrer/dmetar"
-# "sachaepskamp/psychonetrics"
-# "Kohze/fireData"
-# "sachaepskamp/parSim"
-# "CrumpLab/jsPsychR"
-# "djnavarro/xprmntr",
-# "CrumpLab/vertical",
 
 # update tinytex & install ipaex for Japanese
 tinytex::install_tinytex()
