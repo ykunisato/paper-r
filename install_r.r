@@ -144,9 +144,10 @@ remotes::install_github(c("crsh/papaja",
 "benmarwick/rrtools",
 "yxlin/ggdmc",
 "donaldRwilliams/GGMnonreg",
-"miraisolutions/compareWith",
 "cjvanlissa/worcs",
 "ltl-manabi/olp"), dependencies = TRUE)
+
+#"miraisolutions/compareWith",
 
 # update tinytex & install ipaex for Japanese
 tinytex::install_tinytex()
