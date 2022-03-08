@@ -144,9 +144,9 @@ remotes::install_github(c("crsh/papaja",
 "benmarwick/rrtools",
 "yxlin/ggdmc",
 "donaldRwilliams/GGMnonreg",
-"cjvanlissa/worcs",
-"ltl-manabi/olp"), dependencies = TRUE)
+"cjvanlissa/worcs"), dependencies = TRUE)
 
+#"ltl-manabi/olp"
 #"miraisolutions/compareWith",
 
 # update tinytex & install ipaex for Japanese
