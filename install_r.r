@@ -143,11 +143,15 @@ remotes::install_github(c("crsh/papaja",
 "ykunisato/psyinfr",
 "benmarwick/rrtools",
 "yxlin/ggdmc",
-"donaldRwilliams/GGMnonreg"), dependencies = TRUE)
+"donaldRwilliams/GGMnonreg",
+"miraisolutions/compareWith",
+"cjvanlissa/worcs",
+"ltl-manabi/olp"), dependencies = TRUE)
 
-#"cjvanlissa/worcs"
-#"ltl-manabi/olp"
-#"miraisolutions/compareWith",
+# "donaldRwilliams/BGGM"
+# "ropenscilabs/gramr"
+# "benmarwick/wordcountaddin"
+# "sachaepskamp/psychonetrics"
 
 # update tinytex & install ipaex for Japanese
 tinytex::install_tinytex()
