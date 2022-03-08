@@ -143,9 +143,9 @@ remotes::install_github(c("crsh/papaja",
 "ykunisato/psyinfr",
 "benmarwick/rrtools",
 "yxlin/ggdmc",
-"donaldRwilliams/GGMnonreg",
-"cjvanlissa/worcs"), dependencies = TRUE)
+"donaldRwilliams/GGMnonreg"), dependencies = TRUE)
 
+#"cjvanlissa/worcs"
 #"ltl-manabi/olp"
 #"miraisolutions/compareWith",
 
