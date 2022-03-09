@@ -130,7 +130,9 @@ install.packages(c("memisc",
 "rjson",
 "keyring",
 "reticulate",
-"JuliaCall"
+"JuliaCall",
+"psychonetrics",
+"BGGM"
 ), error = TRUE, dependencies = TRUE)
 
 # install R packages from GitHub
@@ -146,13 +148,6 @@ remotes::install_github(c("crsh/papaja",
 "donaldRwilliams/GGMnonreg",
 "miraisolutions/compareWith",
 "cjvanlissa/worcs",
-"ltl-manabi/olp"), dependencies = TRUE)
-
-# "donaldRwilliams/BGGM"
-# "ropenscilabs/gramr"
-# "benmarwick/wordcountaddin"
-# "sachaepskamp/psychonetrics"
-
-# update tinytex & install ipaex for Japanese
-#tinytex::install_tinytex()
-#tinytex::tlmgr_install("ipaex")
+"ltl-manabi/olp",
+"ropenscilabs/gramr",
+"benmarwick/wordcountaddin"), dependencies = TRUE)
