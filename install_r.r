@@ -154,5 +154,5 @@ remotes::install_github(c("crsh/papaja",
 # "sachaepskamp/psychonetrics"
 
 # update tinytex & install ipaex for Japanese
-tinytex::install_tinytex()
-tinytex::tlmgr_install("ipaex")
+#tinytex::install_tinytex()
+#tinytex::tlmgr_install("ipaex")
