@@ -133,7 +133,8 @@ install.packages(c("memisc",
 "JuliaCall",
 "psychonetrics",
 "BGGM",
-"getPass"
+"getPass",
+"fields"
 ), error = TRUE, dependencies = TRUE)
 
 # install R packages from GitHub
