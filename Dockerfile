@@ -43,9 +43,26 @@ RUN ["r", "install_r.r"]
 
 # install python packaegs
 RUN apt-get install -y python3-pip
-RUN pip3 install scipy \
+RUN pip3 install notebook \
+    scipy \
+    seaborn \
+    scikit-learn \
     sympy \
-    matplotlib
+    mne \
+    axelrod \
+    deap \
+    japanize-matplotlib \
+    mecab-python3 \
+    unidic-lite \
+    networkx \
+    PuLP \
+    pymc3 \
+    simpy \
+    psychrnn \
+    pyddm \
+    inferactively-pymdp\
+    bokeh
+
 
 # Install Julia
 ARG JULIA_VERSION="1.7.2"
@@ -57,3 +74,5 @@ RUN JULIA_MAJOR=`echo $JULIA_VERSION | sed -E  "s/\.[0-9]+$//g"` && \
     rm -r julia-$JULIA_VERSION-linux-x86_64.tar.gz
 
 RUN chown -hR rstudio:staff /opt/julia-$JULIA_VERSION
+
+RUN julia -e 'ENV["PYTHON"] = "";using Pkg;Pkg.update();Pkg.add(["IJulia","PyCall"]);Pkg.build(["IJulia","PyCall"]);Pkg.add(["DataFrames","PyPlot","Distributions","Statistics","JuliaFormatter","CPUTime","Gadfly","GLM","Optim","Plots","Query","RDatasets","SpecialFunctions","StatisticalRethinking","StatsBase","StatsFuns","StatsPlots","AdvancedHMC","BAT","Bijectors","CmdStan","DiffEqBayes","DistributionsAD","ForwardDiff","MCMCChains","MeasureTheory","ParameterizedFunctions","Soss","Turing","LinearAlgebra","DifferentialEquations","Roots","SymPy","ForneyLab"]);Pkg.precompile()'
