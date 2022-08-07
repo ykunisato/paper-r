@@ -134,7 +134,8 @@ install.packages(c("memisc",
 "psychonetrics",
 "BGGM",
 "getPass",
-"fields"
+"fields",
+"JuliaConnectoR"
 ), error = TRUE, dependencies = TRUE)
 
 # install R packages from GitHub
