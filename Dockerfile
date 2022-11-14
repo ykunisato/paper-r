@@ -12,7 +12,7 @@ RUN apt-get install -y fonts-noto-cjk fonts-noto-cjk-extra
 RUN apt-get install -y libjpeg-dev libv8-dev
 
 # install ffmpeg
-RUN apt-get -y install ffmpeg
+# RUN apt-get -y install ffmpeg
 
 # install ImageMagick++ library for magick
 RUN apt-get install -y libmagick++-dev
