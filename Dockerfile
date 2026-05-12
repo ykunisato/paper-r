@@ -53,9 +53,16 @@ RUN apt-get install -y sqlite3
 COPY install_r.r install_r.r
 RUN ["r", "install_r.r"]
 
-# install python packaegs
-RUN apt-get install -y python3-pip
-RUN pip3 install notebook \
+# install python packages
+RUN apt-get update && apt-get install -y python3-pip python3-venv \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+ENV VIRTUAL_ENV=/opt/python
+ENV PATH="${VIRTUAL_ENV}/bin:${PATH}"
+RUN python3 -m venv ${VIRTUAL_ENV} \
+    && pip install --upgrade pip setuptools wheel \
+    && pip install \
+    notebook \
     jupyterlab \
     jupyterlab-git \
     jupyter_contrib_nbextensions \
@@ -72,11 +79,11 @@ RUN pip3 install notebook \
     unidic-lite \
     networkx \
     PuLP \
-    pymc3 \
+    pymc \
     simpy \
     psychrnn \
     pyddm \
-    inferactively-pymdp\
+    inferactively-pymdp \
     bokeh \
     sudachipy
 
