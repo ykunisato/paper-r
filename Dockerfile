@@ -1,5 +1,14 @@
-FROM rocker/verse:latest
+FROM rocker/tidyverse:4.6.0
 LABEL maintainer="Yoshihiko Kunisato <kunisato@psy.senshu-u.ac.jp>"
+
+# Install Quarto CLI
+RUN /rocker_scripts/install_quarto.sh default
+
+# Install TinyTeX
+ENV PATH="${PATH}:/opt/TinyTeX/bin/x86_64-linux:/opt/TinyTeX/bin/aarch64-linux"
+RUN install2.r --error tinytex \
+    && Rscript -e 'tinytex::install_tinytex(dir = "/opt/TinyTeX", force = TRUE)' \
+    && /opt/TinyTeX/bin/*/tlmgr path add
 
 # Install ipaexfont
 RUN apt-get update
