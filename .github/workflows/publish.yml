@@ -29,11 +29,14 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Log in to the Container registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for attempt in 1 2 3 4 5; do
+            printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin && exit 0
+            sleep $((attempt * 10))
+          done
+          exit 1
 
       # プラットフォーム名をタグに使えるよう "/" を "-" に変換（例: linux/arm64 → linux-arm64）
       - name: Normalize platform name
@@ -56,11 +59,14 @@ jobs:
       contents: read
     steps:
       - name: Log in to the Container registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for attempt in 1 2 3 4 5; do
+            printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin && exit 0
+            sleep $((attempt * 10))
+          done
+          exit 1
 
       - name: Create and push multi-arch manifest
         run: |

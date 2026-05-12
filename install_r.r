@@ -1,3 +1,6 @@
+# install bootstrap packages
+install.packages(c("remotes", "BiocManager"), dependencies = TRUE)
+
 # install rstan
 install.packages("rstan", type = "source")
 
@@ -17,10 +20,7 @@ install.packages("cmdstanr", repos = c("https://mc-stan.org/r-packages/", getOpt
 library(cmdstanr)
 install_cmdstan()
 
-install.packages(c("devtools",
-"remotes",
-"BiocManager"
-), error = TRUE, dependencies = TRUE)
+install.packages("devtools", error = TRUE, dependencies = TRUE)
 
 BiocManager::install(c("graph", "RBGL", "Rgraphviz"), update = TRUE, ask = FALSE)
 
