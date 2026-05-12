@@ -71,14 +71,20 @@ RUN pip3 install notebook \
     bokeh \
     sudachipy
 
-# Install Julia
+# Install Julia (amd64: x86_64, arm64: aarch64)
 ARG JULIA_VERSION="1.8.5"
 RUN JULIA_MAJOR=`echo $JULIA_VERSION | sed -E  "s/\.[0-9]+$//g"` && \
-    wget https://julialang-s3.julialang.org/bin/linux/x64/$JULIA_MAJOR/julia-$JULIA_VERSION-linux-x86_64.tar.gz && \
-    tar -xvzf julia-$JULIA_VERSION-linux-x86_64.tar.gz && \
+    ARCH=$(uname -m) && \
+    if [ "$ARCH" = "x86_64" ]; then \
+        JULIA_ARCH="x64"; JULIA_FILE="linux-x86_64"; \
+    else \
+        JULIA_ARCH="aarch64"; JULIA_FILE="linux-aarch64"; \
+    fi && \
+    wget https://julialang-s3.julialang.org/bin/linux/$JULIA_ARCH/$JULIA_MAJOR/julia-$JULIA_VERSION-$JULIA_FILE.tar.gz && \
+    tar -xvzf julia-$JULIA_VERSION-$JULIA_FILE.tar.gz && \
     cp -r julia-$JULIA_VERSION /opt/ && \
     ln -s /opt/julia-$JULIA_VERSION/bin/julia /usr/local/bin/julia && \
-    rm -r julia-$JULIA_VERSION-linux-x86_64.tar.gz
+    rm -r julia-$JULIA_VERSION-$JULIA_FILE.tar.gz
 
 RUN chown -hR rstudio:staff /opt/julia-$JULIA_VERSION
 

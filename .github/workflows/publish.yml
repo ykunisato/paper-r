@@ -1,0 +1,70 @@
+name: Publish Docker image to GHCR
+
+on:
+  push:
+    branches: ['master']
+    # パッケージ関連ファイルが更新された時のみ実行したい場合は以下をコメントアウト解除
+    # paths: ['Dockerfile', 'install_r.r']
+
+jobs:
+  # amd64 と arm64 をそれぞれネイティブランナーで並列ビルド
+  build:
+    runs-on: ${{ matrix.runner }}
+    permissions:
+      packages: write
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: linux/amd64
+            runner: ubuntu-latest
+          - platform: linux/arm64
+            runner: ubuntu-24.04-arm
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # プラットフォーム名をタグに使えるよう "/" を "-" に変換（例: linux/arm64 → linux-arm64）
+      - name: Normalize platform name
+        run: echo "PLATFORM_TAG=$(echo ${{ matrix.platform }} | tr '/' '-')" >> $GITHUB_ENV
+
+      - name: Build and push platform-specific image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          platforms: ${{ matrix.platform }}
+          tags: ghcr.io/${{ github.repository_owner }}/paper-r:latest-${{ env.PLATFORM_TAG }}
+
+  # 両プラットフォームのイメージをひとつのマルチアーチマニフェストに結合
+  merge:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create and push multi-arch manifest
+        run: |
+          docker buildx imagetools create \
+            -t ghcr.io/${{ github.repository_owner }}/paper-r:latest \
+            ghcr.io/${{ github.repository_owner }}/paper-r:latest-linux-amd64 \
+            ghcr.io/${{ github.repository_owner }}/paper-r:latest-linux-arm64
