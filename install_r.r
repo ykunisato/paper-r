@@ -135,7 +135,8 @@ install.packages(c("memisc",
 "BGGM",
 "getPass",
 "fields",
-"JuliaConnectoR"
+"JuliaConnectoR",
+"BayesRTMB"
 ), error = TRUE, dependencies = TRUE)
 
 # install R packages from GitHub
