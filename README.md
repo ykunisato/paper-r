@@ -21,19 +21,19 @@ Keywords: psychology, cognitive science, rstudio, rstan, rmarkdown
 
 
 ```
-docker run -e PASSWORD=password -p 8787:8787 -v $(pwd):/home/rstudio -d --name paperr ykunisato/paper-r
+docker run -e PASSWORD=password -p 8787:8787 -v $(pwd):/home/rstudio -d --name paperr ghcr.io/ykunisato/paper-r:latest-linux-arm64
 ```
 or
 
 ```
-docker run -e PASSWORD=password -e DISABLE_AUTH=true -p 8787:8787 -v $(pwd):/home/rstudio -d --name paperr ykunisato/paper-r
+docker run -e PASSWORD=password -e DISABLE_AUTH=true -p 8787:8787 -v $(pwd):/home/rstudio -d --name paperr ghcr.io/ykunisato/paper-r:latest-linux-arm64
 ```
 
 **Windows**
 
 
 ```
-docker run -e PASSWORD=password -p 8787:8787 -v "%cd%":/home/rstudio -d --name paperr ykunisato/paper-r
+docker run -e PASSWORD=password -p 8787:8787 -v "%cd%":/home/rstudio -d --name paperr ghcr.io/ykunisato/paper-r:latest-linux-arm64
 ```
 
 
