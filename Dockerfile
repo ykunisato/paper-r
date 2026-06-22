@@ -1,4 +1,4 @@
-FROM rocker/tidyverse:4.6.0
+FROM rocker/tidyverse:latest
 LABEL maintainer="Yoshihiko Kunisato <kunisato@psy.senshu-u.ac.jp>"
 
 # Install Quarto CLI
