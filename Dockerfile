@@ -49,7 +49,46 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update
 RUN apt-get install -y sqlite3
 
+# Install Node.js 22 LTS for opencode.
+RUN apt-get update && apt-get install -y ca-certificates curl gnupg \
+    && mkdir -p /etc/apt/keyrings \
+    && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key \
+       | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
+    && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_22.x nodistro main" \
+       > /etc/apt/sources.list.d/nodesource.list \
+    && apt-get update \
+    && apt-get install -y nodejs \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install opencode.
+RUN npm install -g opencode-ai@latest
+
+# Install R packages for LLM-assisted workflows.
+RUN Rscript -e "\
+  install.packages( \
+    c('ellmer', 'gander', 'chores', 'btw', 'usethis'), \
+    repos = 'https://cloud.r-project.org', \
+    dependencies = TRUE \
+  ) \
+"
+
+# Configure gander when GROQ_API_KEY is available.
+RUN printf '\n\
+# AI assistant (ellmer / gander)\n\
+# Set GROQ_API_KEY in your ~/.Renviron and restart R.\n\
+if (nzchar(Sys.getenv("GROQ_API_KEY"))) {\n\
+  options(\n\
+    gander.chat = ellmer::chat_groq(\n\
+      model = "llama-3.3-70b-versatile"\n\
+    )\n\
+  )\n\
+}\n\
+# End AI assistant setup\n\
+' >> /usr/local/lib/R/etc/Rprofile.site
+
+# Install project R packages last to preserve cache layers.
+
 # install R packages
 COPY install_r.r install_r.r
 RUN ["r", "install_r.r"]
-
