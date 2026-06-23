@@ -47,7 +47,36 @@ docker run -e PASSWORD=password -p 8787:8787 -v "%cd%":/home/rstudio -d --name p
 
 In addition to the R packages, this image bundles tools that let you use AI assistants for coding and writing:
 
-- **[opencode](https://github.com/anomalyco/opencode)**: An AI coding agent available from the terminal. Run `opencode` in the RStudio "Terminal" tab to start it.
 - **R packages for LLMs**: [`ellmer`](https://ellmer.tidyverse.org/) (calling LLM APIs from R), [`gander`](https://github.com/simonpcouch/gander) and [`chores`](https://github.com/simonpcouch/chores) (RStudio add-ins for AI-assisted coding), [`btw`](https://github.com/posit-dev/btw), and `usethis`.
 
-To use these, set your own API key in `~/.Renviron` (e.g. open it with `usethis::edit_r_environ()` and add a line such as `GROQ_API_KEY="gsk_xxxxxxxx"`, then restart R). When `GROQ_API_KEY` is set, `gander` is preconfigured to use Groq's `llama-3.3-70b-versatile` model.
+### Setting up the API key
+
+To use these tools, set your own API key in `~/.Renviron`.
+
+1. In R, open the file with:
+
+   ```r
+   usethis::edit_r_environ()
+   ```
+
+2. Add a line with your key (here, Groq) and save:
+
+   ```
+   GROQ_API_KEY="gsk_xxxxxxxxxxxx"
+   ```
+
+3. Restart R.
+
+This image's `Rprofile.site` is configured so that **when `GROQ_API_KEY` is set, `gander` automatically uses Groq's `llama-3.3-70b-versatile` model**:
+
+```r
+if (nzchar(Sys.getenv("GROQ_API_KEY"))) {
+  options(
+    gander.chat = ellmer::chat_groq(
+      model = "llama-3.3-70b-versatile"
+    )
+  )
+}
+```
+
+To use a different provider or model, set the corresponding API key (e.g. `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`) and configure `ellmer` accordingly.

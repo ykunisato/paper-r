@@ -41,7 +41,36 @@ docker run -e PASSWORD=パスワード -p 8787:8787 -v "%cd%":/home/rstudio -d -
 
 Rパッケージに加えて，コーディングや執筆をAIアシスタントで支援するためのツールも同梱しています。
 
-- **[opencode](https://github.com/anomalyco/opencode)**: ターミナルから使えるAIコーディングエージェントです。RStudioの「Terminal」タブで `opencode` と打つと起動します。
 - **LLM向けRパッケージ**: [`ellmer`](https://ellmer.tidyverse.org/)（RからLLMのAPIを呼び出す），[`gander`](https://github.com/simonpcouch/gander)・[`chores`](https://github.com/simonpcouch/chores)（AI支援コーディングのRStudioアドイン），[`btw`](https://github.com/posit-dev/btw)，`usethis` をインストールしています。
 
-これらを使うには，ご自身のAPIキーを `~/.Renviron` に設定してください（例: `usethis::edit_r_environ()` で開き，`GROQ_API_KEY="gsk_xxxxxxxx"` のような行を追加してRを再起動）。`GROQ_API_KEY` が設定されていると，`gander` はGroqの `llama-3.3-70b-versatile` モデルを使うよう自動で設定されます。
+### APIキーの設定
+
+これらのツールを使うには，ご自身のAPIキーを `~/.Renviron` に設定してください。
+
+1. Rで以下を実行してファイルを開きます。
+
+   ```r
+   usethis::edit_r_environ()
+   ```
+
+2. 自分のキー（ここではGroq）の行を追加して保存します。
+
+   ```
+   GROQ_API_KEY="gsk_xxxxxxxxxxxx"
+   ```
+
+3. Rを再起動します。
+
+本イメージの `Rprofile.site` は，**`GROQ_API_KEY` が設定されていると `gander` がGroqの `llama-3.3-70b-versatile` モデルを自動で使う**ように設定されています。
+
+```r
+if (nzchar(Sys.getenv("GROQ_API_KEY"))) {
+  options(
+    gander.chat = ellmer::chat_groq(
+      model = "llama-3.3-70b-versatile"
+    )
+  )
+}
+```
+
+別のプロバイダやモデルを使う場合は，対応するAPIキー（例: `OPENAI_API_KEY`，`ANTHROPIC_API_KEY`）を設定し，`ellmer` 側を適宜設定してください。

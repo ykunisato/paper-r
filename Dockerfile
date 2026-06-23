@@ -51,32 +51,6 @@ RUN apt-get update
 RUN apt-get install -y sqlite3
 
 
-# opencode
-# HOME(/home/rstudio) は実行時に $(pwd) で上書きマウントされるため、
-# opencode の設定/データ先を HOME の外に固定して Mac 側の状態を読み込まないようにする
-ENV XDG_CONFIG_HOME=/opt/opencode/config \
-    XDG_DATA_HOME=/opt/opencode/data \
-    XDG_CACHE_HOME=/opt/opencode/cache
-RUN mkdir -p /opt/opencode/config /opt/opencode/data /opt/opencode/cache \
-    && chown -R rstudio:rstudio /opt/opencode
-
-RUN set -eux; \
-    ARCH=$(uname -m); \
-    case "$ARCH" in \
-      aarch64) TRIPLE="linux-arm64" ;; \
-      x86_64)  TRIPLE="linux-x64"   ;; \
-      *) echo "Unsupported arch: $ARCH" && exit 1 ;; \
-    esac; \
-    LATEST=$(curl -fsSL https://api.github.com/repos/anomalyco/opencode/releases/latest \
-             | grep '"tag_name"' | sed 's/.*"v\([^"]*\)".*/\1/'); \
-    curl -fsSL "https://github.com/anomalyco/opencode/releases/download/v${LATEST}/opencode-${TRIPLE}.tar.gz" \
-         -o /tmp/opencode.tar.gz; \
-    tar -xzf /tmp/opencode.tar.gz -C /usr/local/bin; \
-    chmod 755 /usr/local/bin/opencode; \
-    rm /tmp/opencode.tar.gz; \
-    opencode --version
- 
-
 # ellmer
 RUN Rscript -e "\
   install.packages( \
