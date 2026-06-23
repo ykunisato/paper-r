@@ -31,6 +31,7 @@ RUN apt-get install -y clang make
 
 # Install JAGS and other linux packages
 RUN apt-get update && apt-get install -y \
+    curl \
     jags \
     libgsl0-dev \
     tcl8.6-dev \
