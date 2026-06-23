@@ -73,4 +73,28 @@ if (nzchar(Sys.getenv("GROQ_API_KEY"))) {
 }
 ```
 
-別のプロバイダやモデルを使う場合は，対応するAPIキー（例: `OPENAI_API_KEY`，`ANTHROPIC_API_KEY`）を設定し，`ellmer` 側を適宜設定してください。
+### Groqのモデルを変更する
+
+Groq内で別のモデルを使うには，`model = "..."` の値を変えます。イメージを作り直さずにユーザーごとに上書きするには，自分の `~/.Rprofile`（`usethis::edit_r_profile()` で開く）に以下を追記してRを再起動してください。
+
+```r
+if (nzchar(Sys.getenv("GROQ_API_KEY"))) {
+  options(
+    gander.chat = ellmer::chat_groq(
+      model = "openai/gpt-oss-120b"   # 使いたいモデルを指定
+    )
+  )
+}
+```
+
+Groqで現在使えるモデルは，以下で確認できます。
+
+```bash
+curl https://api.groq.com/openai/v1/models -H "Authorization: Bearer $GROQ_API_KEY"
+```
+
+または公式の一覧 [console.groq.com/docs/models](https://console.groq.com/docs/models) を参照してください。Groqは提供モデルを頻繁に更新するため，最新で高性能なモデルはここで確認するのが確実です。
+
+> イメージ全体のデフォルトを変えたい場合は，`Dockerfile` の `Rprofile.site` のブロックを書き換えてリビルドしてください。
+
+別のプロバイダ自体を使う場合は，対応するAPIキー（例: `OPENAI_API_KEY`，`ANTHROPIC_API_KEY`）を設定し，`ellmer`（`chat_openai()`，`chat_anthropic()` など）を適宜設定してください。
