@@ -62,8 +62,8 @@ RUN apt-get update && apt-get install -y ca-certificates curl gnupg \
     && rm -rf /var/lib/apt/lists/*
 
 # Install opencode.
-RUN OPENCODE_INSTALL_DIR=/usr/local/bin \
-    bash -c "$(curl -fsSL https://opencode.ai/install)"
+RUN curl -fsSL https://opencode.ai/install | bash \
+    && ln -s /root/.opencode/bin/opencode /usr/local/bin/opencode
 
 # Install R packages for LLM-assisted workflows.
 RUN Rscript -e "\
