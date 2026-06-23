@@ -49,23 +49,26 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update
 RUN apt-get install -y sqlite3
 
-# Install Node.js 22 LTS for opencode.
-RUN apt-get update && apt-get install -y ca-certificates curl gnupg \
-    && mkdir -p /etc/apt/keyrings \
-    && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key \
-       | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg \
-    && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_22.x nodistro main" \
-       > /etc/apt/sources.list.d/nodesource.list \
-    && apt-get update \
-    && apt-get install -y nodejs \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
 
-# Install opencode.
-RUN curl -fsSL https://opencode.ai/install | bash \
-    && ln -s /root/.opencode/bin/opencode /usr/local/bin/opencode
+# opencode
+RUN set -eux; \
+    ARCH=$(uname -m); \
+    case "$ARCH" in \
+      aarch64) TRIPLE="linux-arm64" ;; \
+      x86_64)  TRIPLE="linux-x64"   ;; \
+      *) echo "Unsupported arch: $ARCH" && exit 1 ;; \
+    esac; \
+    LATEST=$(curl -fsSL https://api.github.com/repos/anomalyco/opencode/releases/latest \
+             | grep '"tag_name"' | sed 's/.*"v\([^"]*\)".*/\1/'); \
+    curl -fsSL "https://github.com/anomalyco/opencode/releases/download/v${LATEST}/opencode-${TRIPLE}.tar.gz" \
+         -o /tmp/opencode.tar.gz; \
+    tar -xzf /tmp/opencode.tar.gz -C /usr/local/bin; \
+    chmod 755 /usr/local/bin/opencode; \
+    rm /tmp/opencode.tar.gz; \
+    opencode --version
+ 
 
-# Install R packages for LLM-assisted workflows.
+# ellmer
 RUN Rscript -e "\
   install.packages( \
     c('ellmer', 'gander', 'chores', 'btw', 'usethis'), \
@@ -73,11 +76,13 @@ RUN Rscript -e "\
     dependencies = TRUE \
   ) \
 "
-
-# Configure gander when GROQ_API_KEY is available.
+ 
+# Rprofile
 RUN printf '\n\
-# AI assistant (ellmer / gander)\n\
-# Set GROQ_API_KEY in your ~/.Renviron and restart R.\n\
+# ── AI assistant (ellmer / gander) ──────────────────────────────\n\
+# GROQ_API_KEY を各自の ~/.Renviron に設定してください。\n\
+# 例: usethis::edit_r_environ() で開いて\n\
+#     GROQ_API_KEY="gsk_xxxxxxxxxxxx" の行を追加し、R を再起動。\n\
 if (nzchar(Sys.getenv("GROQ_API_KEY"))) {\n\
   options(\n\
     gander.chat = ellmer::chat_groq(\n\
@@ -85,10 +90,9 @@ if (nzchar(Sys.getenv("GROQ_API_KEY"))) {\n\
     )\n\
   )\n\
 }\n\
-# End AI assistant setup\n\
+# ────────────────────────────────────────────────────────────────\n\
 ' >> /usr/local/lib/R/etc/Rprofile.site
-
-# Install project R packages last to preserve cache layers.
+ 
 
 # install R packages
 COPY install_r.r install_r.r
