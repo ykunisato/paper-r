@@ -36,3 +36,12 @@ docker run -e PASSWORD=パスワード -p 8787:8787 -v "%cd%":/home/rstudio -d -
 5.ブラウザ上にRstudioが出てくるので，IDにrstudio，パスに上記で設定したパスワードをいれる。
 
 ## [インストールされているRパッケージのリスト](https://github.com/ykunisato/paper-r/blob/master/list_packages.md)
+
+## AIアシスタント関連ツール
+
+Rパッケージに加えて，コーディングや執筆をAIアシスタントで支援するためのツールも同梱しています。
+
+- **[opencode](https://github.com/anomalyco/opencode)**: ターミナルから使えるAIコーディングエージェントです。RStudioの「Terminal」タブで `opencode` と打つと起動します。
+- **LLM向けRパッケージ**: [`ellmer`](https://ellmer.tidyverse.org/)（RからLLMのAPIを呼び出す），[`gander`](https://github.com/simonpcouch/gander)・[`chores`](https://github.com/simonpcouch/chores)（AI支援コーディングのRStudioアドイン），[`btw`](https://github.com/posit-dev/btw)，`usethis` をインストールしています。
+
+これらを使うには，ご自身のAPIキーを `~/.Renviron` に設定してください（例: `usethis::edit_r_environ()` で開き，`GROQ_API_KEY="gsk_xxxxxxxx"` のような行を追加してRを再起動）。`GROQ_API_KEY` が設定されていると，`gander` はGroqの `llama-3.3-70b-versatile` モデルを使うよう自動で設定されます。

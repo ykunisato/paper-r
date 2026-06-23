@@ -42,3 +42,12 @@ docker run -e PASSWORD=password -p 8787:8787 -v "%cd%":/home/rstudio -d --name p
 5. You will see the Rstudio on the web browser. Type rstudio in ID column and password that you set in password column.
 
 ## [List of R packages](https://github.com/ykunisato/paper-r/blob/master/list_packages.md)
+
+## AI assistant tools
+
+In addition to the R packages, this image bundles tools that let you use AI assistants for coding and writing:
+
+- **[opencode](https://github.com/anomalyco/opencode)**: An AI coding agent available from the terminal. Run `opencode` in the RStudio "Terminal" tab to start it.
+- **R packages for LLMs**: [`ellmer`](https://ellmer.tidyverse.org/) (calling LLM APIs from R), [`gander`](https://github.com/simonpcouch/gander) and [`chores`](https://github.com/simonpcouch/chores) (RStudio add-ins for AI-assisted coding), [`btw`](https://github.com/posit-dev/btw), and `usethis`.
+
+To use these, set your own API key in `~/.Renviron` (e.g. open it with `usethis::edit_r_environ()` and add a line such as `GROQ_API_KEY="gsk_xxxxxxxx"`, then restart R). When `GROQ_API_KEY` is set, `gander` is preconfigured to use Groq's `llama-3.3-70b-versatile` model.
